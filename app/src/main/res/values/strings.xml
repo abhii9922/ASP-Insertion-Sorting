@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Advance Software Process Project</string>
+    <string name="quit">Quit</string>
+    <string name="result">Result</string>
+    <string name="title">Sorting Company</string>
+    <string name="input" ><font size="20">Enter Input Values [eg 1,5,6]</font> </string>
+</resources>
