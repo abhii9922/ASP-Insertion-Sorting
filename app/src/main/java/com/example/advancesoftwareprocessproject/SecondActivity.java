@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.advancesoftwareprocessproject.util.SortingProvider;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -16,10 +18,14 @@ public class SecondActivity extends AppCompatActivity {
     TextView text;
     String str="";
 
+    SortingProvider sortingProvider;
+    List<int[]> results;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result);
+        sortingProvider = new SortingProvider();
 
         text = (TextView) findViewById(R.id.textView1);
 
@@ -32,10 +38,14 @@ public class SecondActivity extends AppCompatActivity {
         }
 
 //        int input[] = getIntent().getStringExtra("key");
-//
-        this.insertionSort2(Inputs);
+
+        results = sortingProvider.insertionSort2(Inputs);
+        for (int[] result: results) {
+            this.print(result);
+        }
         text.setText(str);
     }
+
     public void print(int[] arr){
         for(int x: arr){
             this.str += x +" ";
@@ -45,25 +55,7 @@ public class SecondActivity extends AppCompatActivity {
         this.str +="\n";
         System.out.println();
     }
-    public void insertionSort2(int[] arr) {
-        print(arr);
-        for(int i= 1; i<arr.length; ++i){
-            int key = arr[i];
-            int j = i-1;
 
-            boolean flag = false;
-
-            while(j>=0 && arr[j]>key){
-                //print(arr);
-                flag = true;
-                arr[j+1]=arr[j];
-                j = j-1;
-            }
-            arr[j+1]=key;
-            if(flag)
-                print(arr);
-        }
-    }
     public void quit(View view){
         Intent intent = new Intent(SecondActivity.this, HomeActivity.class);
         startActivity(intent);
