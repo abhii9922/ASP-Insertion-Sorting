@@ -23,13 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.home);
-//        button3 = (Button) findViewById(R.id.button3);
-//        button3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                start();
-//            }
-//        });
+
     }
 
     public void start(View view){
